@@ -26,7 +26,7 @@ class TeacherForm(forms.ModelForm):
 class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
-        fields = ['title', 'type', 'file', 'author']  # Assuming 'teacher' is not needed as it's a duplicate ForeignKey
+        fields = ['title', 'type', 'file', 'author', 'kurator']  # Assuming 'teacher' is not needed as it's a duplicate ForeignKey
 
 
 class DocumentFilterForm(forms.Form):

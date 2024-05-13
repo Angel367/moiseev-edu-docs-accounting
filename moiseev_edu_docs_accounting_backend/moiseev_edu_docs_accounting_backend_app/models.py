@@ -41,7 +41,7 @@ class Document(models.Model):
     is_published = models.BooleanField(default=False)
     file = models.FileField(upload_to='documents/', blank=False, null=False)
     author = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='documents')
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='document', null=True, blank=True)
+    kurator = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='document', null=True, blank=True)
 
     def __str__(self):
         return self.title
