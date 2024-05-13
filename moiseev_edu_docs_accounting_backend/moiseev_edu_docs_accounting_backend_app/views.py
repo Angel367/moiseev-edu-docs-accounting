@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .forms import *
 
 
+def student(request):
+    return render(request, 'student/student.html')
+
+
 def student_create(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
@@ -19,7 +23,10 @@ def student_list(request):
 
 
 def student_detail(request, pk):
-    student = Student.objects.get(pk=pk)
+    try:
+        student = Student.objects.get(pk=pk)
+    except Student.DoesNotExist:
+        return redirect('page_404')
     return render(request, 'student/student_detail.html', {'student': student})
 
 
@@ -29,6 +36,10 @@ def student_delete(request, pk):
         student.delete()
         return redirect('student_list')
     return render(request, 'student/student_delete.html', {'student': student})
+
+
+def teacher(request):
+    return render(request, 'teacher/teacher.html')
 
 
 def teacher_create(request):
@@ -48,7 +59,10 @@ def teacher_list(request):
 
 
 def teacher_detail(request, pk):
-    teacher = Teacher.objects.get(pk=pk)
+    try:
+        teacher = Teacher.objects.get(pk=pk)
+    except Teacher.DoesNotExist:
+        return redirect('page_404')
     return render(request, 'teacher/teacher_detail.html', {'teacher': teacher})
 
 
@@ -59,6 +73,9 @@ def teacher_delete(request, pk):
         return redirect('teacher_list')
     return render(request, 'teacher/teacher_delete.html', {'teacher': teacher})
 
+
+def document(request):
+    return render(request, 'document/document.html')
 
 def document_create(request):
     if request.method == 'POST':
@@ -88,7 +105,10 @@ def document_list(request):
 
 
 def document_detail(request, pk):
-    document = Document.objects.get(pk=pk)
+    try:
+        document = Document.objects.get(pk=pk)
+    except Document.DoesNotExist:
+        return redirect('page_404')
     return render(request, 'document/document_detail.html', {'document': document})
 
 
@@ -98,3 +118,11 @@ def document_delete(request, pk):
         document.delete()
         return redirect('document_list')
     return render(request, 'document/document_delete.html', {'document': document})
+
+
+def main_page(request):
+    return render(request, 'index.html')
+
+
+def page_404(request):
+    return render(request, '404.html')
