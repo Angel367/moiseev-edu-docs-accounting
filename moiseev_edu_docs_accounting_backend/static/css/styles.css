@@ -1,0 +1,24 @@
+/* styles.css */
+
+/* Тема */
+body {
+    background-color: #212529;
+    color: #fff;
+}
+
+/* Карточка */
+.card {
+    background-color: #343a40;
+    border-color: #343a40;
+    color: #fff;
+}
+
+/* Заголовок */
+h1 {
+    color: #ff9c07;
+}
+
+/* Первое слово в каждом абзаце жирным шрифтом */
+p::first-word {
+    font-weight: bold;
+}
