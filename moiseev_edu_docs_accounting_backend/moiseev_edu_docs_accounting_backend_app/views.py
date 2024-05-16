@@ -98,7 +98,7 @@ def document_list(request):
         if year:
             documents = documents.filter(created_at__year=year)
         if student_lastname:
-            documents = documents.filter(author__last_name=student_lastname)
+            documents = documents.filter(author=student_lastname)
         if title_contains:
             documents = documents.filter(title__icontains=title_contains)
     return render(request, 'document/document_list.html', {'documents': documents, 'filter_form': filter_form})

@@ -3,7 +3,7 @@ from django.db import models
 
 class Student(models.Model):
     first_name = models.CharField(max_length=32, null=False, blank=False)
-    last_name = models.CharField(max_length=32, null=False, blank=False)
+    last_name = models.CharField(max_length=32, null=False, blank=False, unique=True)
     patronymic = models.CharField(max_length=32, null=True, blank=True)
     birth_date = models.DateField()
     group = models.CharField(max_length=12)
@@ -17,7 +17,7 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     first_name = models.CharField(max_length=32, null=False, blank=False)
-    last_name = models.CharField(max_length=32, null=False, blank=False)
+    last_name = models.CharField(max_length=32, null=False, blank=False, unique=True)
     patronymic = models.CharField(max_length=32, null=True, blank=True)
     birth_date = models.DateField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -39,7 +39,7 @@ class Document(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
-    file = models.FileField(upload_to='documents/', blank=False, null=False)
+    file = models.FileField(upload_to='documents/', blank=True, null=True)
     author = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='documents')
     kurator = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='document', null=True, blank=True)
 

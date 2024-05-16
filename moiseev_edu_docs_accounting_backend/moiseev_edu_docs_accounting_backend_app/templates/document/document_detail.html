@@ -21,7 +21,11 @@
                 <p><strong>Updated At:</strong> {{ document.updated_at }}</p>
                 <p><strong>Куратор:</strong> {{ document.kurator.first_name }}</p>
                 <p><strong>Publication Status:</strong> {% if document.is_published %} Yes {% else %} No {% endif %}</p>
-                <a href="{{ document.file.url }}" class="btn btn-primary" download>Download File</a>
+                {% if document.file %}
+    <a href="{{ document.file.url }}" class="btn btn-primary" download>Download File</a>
+{% else %}
+    <p>No file available for download.</p>
+{% endif %}
                 <a href="/document/delete/{{ document.id }}" class="btn btn-danger">Delete document</a>
             </div>
         </div>
