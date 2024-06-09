@@ -77,22 +77,22 @@ WSGI_APPLICATION = 'moiseev_edu_docs_accounting_backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'DB_BANE',
-        'USER': 'ROOT',
-        'PASSWORD': 'PASSWORD',
-        'HOST': '127.0.0.1', # Или IP адрес хоста базы данных
-        'PORT': '3306', # По умолчанию для MySQL
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'DB_BANE',
+#         'USER': 'ROOT',
+#         'PASSWORD': 'PASSWORD',
+#         'HOST': '127.0.0.1', # Или IP адрес хоста базы данных
+#         'PORT': '3306', # По умолчанию для MySQL
+#     }
+# }
 
 
 
